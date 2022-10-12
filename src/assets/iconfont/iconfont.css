@@ -1,0 +1,158 @@
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: 'iconfont';  /* Project id 3700565 */
+    src: url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.woff2?t=1665573543819') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.woff?t=1665573543819') format('woff'),
+    url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.ttf?t=1665573543819') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*网易云音乐*/
+.icon-wangyiyun:before{
+    content: '\e6a5';
+}
+
+/*音符*/
+.icon-yinfu:before{
+    content: '\e630';
+}
+
+/*回收站*/
+.icon-huishouzhan:before{
+    content: '\e61a';
+}
+
+/*全屏*/
+.icon-fullscreen:before{
+    content: '\e7ec';
+}
+
+/*退出全屏*/
+.icon-fullscreen-exit:before{
+    content: '\e7ed';
+}
+
+/*暂停*/
+.icon-pause:before{
+    content: '\e7fe';
+}
+
+/*播放*/
+.icon-play:before{
+    content: '\e717';
+}
+
+/*静音*/
+.icon-jingyin:before{
+    content: '\ea0b';
+}
+
+/*音量高*/
+.icon-yinlianggao:before{
+    content: '\ea0c';
+}
+
+/*音量低*/
+.icon-yinliangdi:before{
+    content: '\ea0d';
+}
+
+/*收藏*/
+.icon-shoucang:before{
+    content: '\e69e';
+}
+
+/*上一首*/
+.icon-shangyishou:before{
+    content: '\e63c';
+}
+
+/*下一首*/
+.icon-xiayishou:before{
+    content: '\e63e';
+}
+
+/*回退*/
+.icon-back:before{
+    content: '\e600';
+}
+
+/*前进*/
+.icon-forward:before{
+    content: '\e601';
+}
+
+/*搜索*/
+.icon-search:before{
+    content: '\e6e1';
+}
+
+/*歌单*/
+.icon-gedan:before{
+    content: '\e636';
+}
+
+/*视频*/
+.icon-video:before{
+    content: '\e76d';
+}
+
+/*最近播放*/
+.icon-zuijinbofang:before{
+    content: '\e6d7';
+}
+
+/*推荐*/
+.icon-like:before{
+    content: '\e65f';
+}
+
+
+/*皮肤*/
+.icon-skin:before{
+    content: '\e631';
+}
+
+/*私人FM*/
+.icon-FM:before{
+    content: '\e637';
+}
+
+/*单曲循环*/
+.icon-singleCycle:before{
+    content: '\e607';
+}
+
+/*随机播放*/
+.icon-random:before{
+    content: '\e60a';
+}
+
+/*列表播放*/
+.icon-playList:before{
+    content: '\ea71';
+}
+
+/*列表循环*/
+.icon-listCycle:before{
+    content: '\e6bd';
+}
+
+/*鲸鱼*/
+.icon-whale:before{
+    content: '\e6c3';
+}
+
+
+
+
+
+
+
