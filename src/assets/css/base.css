@@ -73,6 +73,13 @@ a:hover {
 .RP-base .RP-son {
   margin-top: 10px;
 }
+.RP-base .RP-son img {
+  border-radius: 5px;
+  width: 100%;
+}
+.mainW {
+  margin-bottom: 30px;
+}
 /*歌单的浮动显示*/
 .floating-play {
   position: absolute;

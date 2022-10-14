@@ -9,7 +9,7 @@
 
 <script>
   import {getRPSongList} from "@/config/findMusic/RPConfig";
-  import RPSongListItem from "@/components/content/findMusic/personalRecommendation/RP-songList-item";
+  import RPSongListItem from "@/components/content/findMusic/personalRecommendation/RP-songList/RP-songList-item";
 
   export default {
     name: "RP-songList",
@@ -37,7 +37,7 @@
     .RP-song {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(5, 18%);
+      grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 50% 50%;
       grid-column-gap: 2.5%;
       grid-row-gap: 15px;

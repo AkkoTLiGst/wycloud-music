@@ -17,6 +17,5 @@
     padding: 0 30px;
     min-width: 830px;
     overflow-y: scroll;
-    overflow-x: scroll;
   }
 </style>

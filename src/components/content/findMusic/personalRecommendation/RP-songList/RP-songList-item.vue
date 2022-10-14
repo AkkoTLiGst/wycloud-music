@@ -62,11 +62,6 @@
           font-weight: bold;
 
         }
-        // 图片
-        img{
-          width: 100%;
-          border-radius: 5px;
-        }
       }
       // 歌单标题
       span{
