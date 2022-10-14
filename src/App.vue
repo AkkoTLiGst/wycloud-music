@@ -21,6 +21,6 @@
   html, body{width: 100%; height: 100%;}
   #app {
     width: 100%; height: 100%;
-    min-width: 668px;
+    min-width: 996px;
   }
 </style>

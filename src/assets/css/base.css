@@ -13,6 +13,15 @@ i {
 li {
   list-style: none;
 }
+/**修改全局的滚动条*/
+/**滚动条的宽度*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #eaecf1;
+  border-radius: 3px;
+}
 img {
   /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
   border: 0;
@@ -41,5 +50,44 @@ a:hover {
   content: '';
   display: table;
   clear: both;
+}
+/*main-view的部分页面的默认样式*/
+.main-view-baseW {
+  padding: 0 100px;
+}
+@media only screen and (max-width: 1600px) {
+  .main-view-baseW {
+    padding: 0;
+  }
+}
+/*个性推荐的每个子元素的公共样式*/
+.RP-base {
+  margin-top: 20px;
+  /*个性推荐的每个子元素的标题的公共样式*/
+  /*个性推荐的每个子元素的内容的公共样式*/
+}
+.RP-base .RP-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.RP-base .RP-son {
+  margin-top: 10px;
+}
+/*歌单的浮动显示*/
+.floating-play {
+  position: absolute;
+  left: 75%;
+  top: 75%;
+  width: 20%;
+  height: 20%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.floating-play i {
+  font-size: 200%;
+  color: #6c79ee;
 }
 /*# sourceMappingURL=base.css.map */

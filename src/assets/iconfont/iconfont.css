@@ -1,9 +1,9 @@
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
     font-family: 'iconfont';  /* Project id 3700565 */
-    src: url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.woff2?t=1665573543819') format('woff2'),
-    url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.woff?t=1665573543819') format('woff'),
-    url('//at.alicdn.com/t/c/font_3700565_vt8u5719ex.ttf?t=1665573543819') format('truetype');
+    src: url('//at.alicdn.com/t/c/font_3700565_w2to8bvrc9.woff2?t=1665653235055') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3700565_w2to8bvrc9.woff?t=1665653235055') format('woff'),
+    url('//at.alicdn.com/t/c/font_3700565_w2to8bvrc9.ttf?t=1665653235055') format('truetype');
 }
 
 .iconfont {
@@ -148,6 +148,11 @@
 /*鲸鱼*/
 .icon-whale:before{
     content: '\e6c3';
+}
+
+/*描边play*/
+.icon-strokePlay:before{
+    content: '\e718';
 }
 
 

@@ -18,5 +18,6 @@
 <style scoped lang="less">
   #main{
     width: 100%; height: calc(100% - 130px);
+    display: flex;
   }
 </style>

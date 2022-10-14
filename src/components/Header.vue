@@ -38,6 +38,9 @@
       display: flex;
     }
     .header-right{
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
       margin-right: 30px;
     }
   }
