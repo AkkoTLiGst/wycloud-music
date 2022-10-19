@@ -27,7 +27,7 @@
       align-items: center;
 
       i{
-        color: #717ff9;
+        color: var(--themeColor);
         font-size: 40px;
       }
       span{

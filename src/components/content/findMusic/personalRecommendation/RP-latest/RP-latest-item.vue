@@ -16,9 +16,6 @@
     name: "RP-latest-item",
     props: {
       item: Object
-    },
-    mounted() {
-      console.log(this.item)
     }
   }
 </script>
@@ -43,7 +40,7 @@
 
         i{
           font-size: 23px;
-          color: #668eff;
+          color: var(--themeColor);
         }
       }
     }

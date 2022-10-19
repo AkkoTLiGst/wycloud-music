@@ -23,10 +23,11 @@ export default {
 
     span{
       width: 25px; height: 25px;
-      text-align: center; line-height: 25px;
+      display: flex;
+      align-items: center; justify-content: center;
       border-radius:  50%;
-      background-color: #6774e4;
-      color: #949dec;
+      background-color: var(--searchColor);
+      color: rgba(255, 255, 255, .2);
     }
   }
 </style>

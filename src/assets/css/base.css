@@ -4,6 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --themeColor: #668eff;
+  --themeColorTM: rgba(102, 142, 255, 0.2);
+  --searchColor: #6c79ee;
+  --translucent: rgba(0, 0, 0, 0.5);
+  --hoverGray: #f6f6f7;
+}
 /* em 和 i 斜体的文字不倾斜 */
 em,
 i {
@@ -71,11 +78,13 @@ a:hover {
   font-weight: bold;
 }
 .RP-base .RP-son {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .RP-base .RP-son img {
-  border-radius: 5px;
   width: 100%;
+}
+img {
+  border-radius: 5px;
 }
 .mainW {
   margin-bottom: 30px;
@@ -83,6 +92,7 @@ a:hover {
 /*歌单的浮动显示*/
 .floating-play {
   position: absolute;
+  z-index: 10;
   left: 75%;
   top: 75%;
   width: 20%;

@@ -11,7 +11,14 @@
 
   export default {
     name: "l-login",
-    components: {rightLogin, loginPop}
+    components: {rightLogin, loginPop},
+    data() {
+      return {
+      }
+    },
+    methods: {
+
+    }
   }
 </script>
 

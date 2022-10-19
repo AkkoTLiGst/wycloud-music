@@ -31,7 +31,12 @@ export default {
   #progress{
     display: flex;
     justify-content: center;
+    margin-bottom: 8px;
 
+    span{
+      font-size: 12px;
+      color: rgba(0, 0, 0, .5);
+    }
     .progressMain{
       width: 600px;
     }

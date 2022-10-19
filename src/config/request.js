@@ -1,7 +1,7 @@
 import axios from 'axios'
 export function request(config){
     const instance = axios.create({
-        baseURL: 'https://cloudmusicapi.ibukisuika.com/',
+        baseURL: 'http://localhost:3000/',
         timeout: 20000, // 指定请求超时
         withCredentials: true
     });

@@ -13,6 +13,9 @@ import VueRouter from "vue-router";
 import router from "@/router";
 // 懒加载lazyload
 import VueLazyload from "vue-lazyload";
+// vuex配置项
+import store from "@/store";
+
 
 Vue.use(less);
 Vue.use(ElementUI);
@@ -28,5 +31,6 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

@@ -22,7 +22,7 @@
       return {
         navList: [
           {name: '个性推荐', path: '/findMusic/prMain', id: 'first'},
-          {name: '歌单', path: '/findMusic/RPList', id: 'second'},
+          {name: '歌单', path: '/findMusic/HQMain', id: 'second'},
           {name: '排行榜', path: '', id: 'third'},
           {name: '歌手', path: '', id: 'fourth'},
           {name: '最新音乐', path: '', id: 'fifth'}

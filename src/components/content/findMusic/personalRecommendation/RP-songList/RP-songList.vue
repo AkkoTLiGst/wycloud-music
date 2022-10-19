@@ -2,7 +2,7 @@
   <div id="RP-songList" class="RP-base">
     <span class="RP-title">推荐歌单</span>
     <div class="RP-song RP-son">
-      <RPSongListItem v-for="(item, index) in list" :key="index" :item="item"/>
+      <RPSongListItem v-for="(item, index) in list" :key="index" :item="item" :father="'RP-songList'"/>
     </div>
   </div>
 </template>

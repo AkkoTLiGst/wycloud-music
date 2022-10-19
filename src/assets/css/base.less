@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  // 主题色
+  --themeColor: #668eff;
+  // 透明主题色
+  --themeColorTM: rgba(102,142,255, .2);
+  // 搜索框颜色
+  --searchColor: #6c79ee;
+  // 半透明黑色
+  --translucent: rgba(0, 0, 0, .5);
+  // hover灰色
+  --hoverGray: #f6f6f7;
+}
+
 /* em 和 i 斜体的文字不倾斜 */
 em,
 i {
@@ -85,13 +98,16 @@ a:hover {
 
   /*个性推荐的每个子元素的内容的公共样式*/
   .RP-son{
-    margin-top: 10px;
+    margin-top: 20px;
 
     img{
-      border-radius: 5px;
       width: 100%;
     }
   }
+}
+
+img{
+  border-radius: 5px;
 }
 
 // 所有main的下面加bottom
@@ -102,6 +118,7 @@ a:hover {
 /*歌单的浮动显示*/
 .floating-play{
   position: absolute;
+  z-index: 10;
   left: 75%; top: 75%;
   width: 20%; height: 20%;
   background-color: rgba(255, 255, 255, .8);

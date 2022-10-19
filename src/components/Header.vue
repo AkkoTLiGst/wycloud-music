@@ -30,7 +30,7 @@
 <style scoped lang="less">
   #header{
     width: 100%; height: 60px;
-    background-color: #668eff;
+    background-color: var(--themeColor);
     display: flex;
     justify-content: space-between;
 
