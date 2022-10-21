@@ -34,7 +34,7 @@
 
   import {mapMutations, mapState} from "vuex";
   import {checkQrCode, createQrCode, getQrKey} from "@/config/login/login";
-  import {userDetail, userID} from "@/config/login/userdata";
+  import { userDetail, userID} from "@/config/login/userdata";
   import {setItem} from "@/config/utils";
 
   export default {
@@ -111,6 +111,7 @@
             clearInterval(this.timer); // 登录成功清除定时器
             setItem('cookie', statusRes.cookie) // 将cookie缓存本地
             this.getUid(); // 存储信息
+            window.location.reload(); // 刷新界面
             this.successQr = false;
           }
         }, 2000);
@@ -129,7 +130,13 @@
                     // console.log("用户信息", res1);
                     this.saveUserData(res1);
                   }
-              )
+              );
+
+              /*dailySignIn().then(
+                  res => {
+                    this.saveUserIsSignIn(res);
+                  }
+              );*/
             }
         );
       },
@@ -146,7 +153,10 @@
         setItem('userLevel', res.data.level); // 用户等级存储本地
       },
 
-      /* 存储用户... */
+      /* 存储用户是否签到 */
+      /*saveUserIsSignIn(res){
+        console.log(res);
+      }*/
     }
   }
 </script>

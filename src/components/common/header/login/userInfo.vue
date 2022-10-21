@@ -1,5 +1,5 @@
 <template>
-  <div id="userInfo">
+  <div id="userInfo" >
     <el-card shadow="always" body-style="width: 280px;">
       <!--  动态、关注、粉丝、签到   -->
       <div class="userInfo-follow">
@@ -22,7 +22,7 @@
         </div>
         <!--签到-->
         <div class="follow-bottom">
-          <div>签到</div>
+          <div @click="signIn" :class="{signInIN: isSignIn}">{{signInText}}</div>
         </div>
       </div>
 
@@ -45,9 +45,18 @@
 import {mapMutations, mapState} from "vuex";
   import {loginOut} from "@/config/login/login";
   import {setItem} from "@/config/utils";
+/*
+  import {dailySignIn} from "@/config/login/userdata";
+*/
 
-  export default {
+export default {
     name: "userInfo",
+  data() {
+    return {
+      isSignIn: false,
+      signInText: '签到'
+    }
+  },
     computed: {
       ...mapState('login', ['userInfo', 'userLevel'])
     },
@@ -62,6 +71,13 @@ import {mapMutations, mapState} from "vuex";
         setItem('userLevel', 0);
         /*重制vuex*/
         this.initialState()
+      },
+      async signIn(){
+        /*const res = await dailySignIn();
+        console.log(res);
+        this.isSignIn = true;*/
+        alert('签到接口目前有BUG');
+
       },
       ...mapMutations('login', ['initialState'])
     }
@@ -103,14 +119,19 @@ import {mapMutations, mapState} from "vuex";
         justify-content: center;
 
         div{
-          color: rgba(0, 0, 0, .3);
-          border: 1px solid rgba(0, 0, 0, .3);
-          padding: 3px 20px;
+          border: 1px solid rgba(0, 0, 0, .1);
+          padding: 5px 25px;
           border-radius: 53px;
         }
 
         div:hover{
           cursor: pointer;
+          background-color: rgba(0, 0, 0, .1);
+        }
+
+        .signInIN{
+          color: rgba(0, 0, 0, .3);
+          //pointer-events: none; // 禁止单击
         }
       }
     }

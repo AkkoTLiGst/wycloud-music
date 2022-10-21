@@ -1,13 +1,21 @@
 <template>
   <div id="operation">
-    <span class="icon iconfont icon-back"></span>
-    <span class="icon iconfont icon-forward"></span>
+    <span class="icon iconfont icon-back" @click="backJump"></span>
+    <span class="icon iconfont icon-forward" @click="forwardJump"></span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "o-operation"
+  name: "o-operation",
+  methods: {
+    backJump(){
+      this.$router.back();
+    },
+    forwardJump(){
+      this.$router.forward();
+    }
+  }
 }
 </script>
 
@@ -26,8 +34,8 @@ export default {
       display: flex;
       align-items: center; justify-content: center;
       border-radius:  50%;
-      background-color: var(--searchColor);
-      color: rgba(255, 255, 255, .2);
+      background-color: rgba(0, 0, 0, .1);
+      color: white;
     }
   }
 </style>

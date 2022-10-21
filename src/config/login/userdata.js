@@ -32,4 +32,12 @@ export function userDetail(uid){
     });
 }
 
+// 签到
+// res.data.code 200: 成功签到， -2: 重复签到
+/*export function dailySignIn(){
+    return request({
+        url: '/sign/happy/info'
+    });
+}*/
+
 // 获取用户...

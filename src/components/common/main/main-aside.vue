@@ -8,12 +8,12 @@
             tag="span"
             active-class="active"
         ><i :class="item.iconfont"/>{{item.name}}</router-link>
-
       </div>
+
       <span class="myMusic">我的音乐</span>
-      <div v-for="(item) in asideNavItem[1]" :key="item.name">
+      <div v-for="(item) in asideNavItem[1]" :key="item.name" @click="open">
         <router-link
-            :to="item.path"
+            :to="item.toWhere"
             tag="span"
             active-class="active"
         ><i :class="item.iconfont"/>{{item.name}}</router-link>
@@ -35,11 +35,38 @@
             {name: '视频推荐', path:'/recommendedVideos', iconfont: 'icon iconfont icon-video'},
             {name: '私人FM', path:'/privateFM', iconfont: 'icon iconfont icon-FM'}
           ],
-          [
-            {name: '我的歌单', path:'/mySongList', iconfont: 'icon iconfont icon-shoucang'},
-            {name: '最近播放', path:'/recentlyPlayed', iconfont: 'icon iconfont icon-zuijinbofang'},
+          [// 我的音乐
+            {
+              name: '我喜欢的音乐',
+              toWhere:{
+                path: '/songList',
+                  query: {
+                    title: 'musicILike'
+                  }
+              },
+              iconfont: 'icon iconfont icon-shoucang'
+            },
+            {
+              name: '我的年度歌单',
+              toWhere:{
+                path:'/recentlyPlayed',
+                query: {
+                  title: 'annualPlaylist'
+                }
+              },
+              iconfont: 'icon iconfont icon-zuijinbofang'
+            },
           ]
         ]
+      }
+    },
+    methods: {
+      open() {
+        if(this.$store.state.login.isLogin === false){
+          this.$alert('请登录后再访问本页面', '', {
+            confirmButtonText: '确定'
+          });
+        }
       }
     }
   }
@@ -51,7 +78,12 @@
     min-width: 127px;
     border-right: 1px solid rgba(128, 128, 128, .2);
 
+
+
     .publicList{
+      div:hover{
+        cursor: pointer;
+      }
       div{
         width: 100%; height: 45px;
         //border: 1px solid red;

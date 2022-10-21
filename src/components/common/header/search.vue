@@ -31,7 +31,7 @@ export default {
 
     .el-input /deep/ .el-input__inner { // 样式穿透.el-input__inner
       height: 30px;
-      background-color: var(--searchColor);
+      background-color: rgba(0, 0, 0, .1);
       border: 0;
       border-radius: 30px 30px;
       color: white;

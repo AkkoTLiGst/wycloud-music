@@ -1,9 +1,9 @@
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
     font-family: 'iconfont';  /* Project id 3700565 */
-    src: url('//at.alicdn.com/t/c/font_3700565_ea47z83gwza.woff2?t=1666165584057') format('woff2'),
-    url('//at.alicdn.com/t/c/font_3700565_ea47z83gwza.woff?t=1666165584057') format('woff'),
-    url('//at.alicdn.com/t/c/font_3700565_ea47z83gwza.ttf?t=1666165584057') format('truetype');
+    src: url('//at.alicdn.com/t/c/font_3700565_9m1nsy83pwc.woff2?t=1666260084056') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3700565_9m1nsy83pwc.woff?t=1666260084056') format('woff'),
+    url('//at.alicdn.com/t/c/font_3700565_9m1nsy83pwc.ttf?t=1666260084056') format('truetype');
 }
 
 .iconfont {
@@ -64,7 +64,7 @@
     content: '\ea0d';
 }
 
-/*收藏*/
+/*爱心收藏*/
 .icon-shoucang:before{
     content: '\e69e';
 }
@@ -175,7 +175,24 @@
     content: '\e64b';
 }
 
+/*星星收藏*/
+.icon-collect:before{
+    content: '\e602';
+}
 
+/*下载*/
+.icon-download:before{
+    content: '\e668';
+}
 
+/*分享*/
+.icon-share:before{
+    content: '\e603';
+}
+
+/*红心*/
+.icon-redHeart:before{
+    content: '\e60c';
+}
 
 

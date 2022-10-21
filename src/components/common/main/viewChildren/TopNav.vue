@@ -7,7 +7,7 @@
           :label="item.name" :name="item.id"
       ></el-tab-pane>
     </el-tabs>-->
-    <el-menu :default-active="$route.path" router mode="horizontal">
+    <el-menu :default-active="$route.path" router mode="horizontal" >
       <el-menu-item v-for="(item, i) in navList" :key="i" :index="item.path">
         {{ item.name }}
       </el-menu-item>
@@ -43,6 +43,7 @@ export default {
     /deep/.is-active{
       font-size: 18px;
       font-weight: bold;
+      border-bottom: 2px solid var(--themeColor);
     }
 
     /deep/.el-tabs__nav-wrap::after{
@@ -51,7 +52,6 @@ export default {
 
     /deep/.el-menu--horizontal{
       border: 0;
-
     }
   }
 </style>

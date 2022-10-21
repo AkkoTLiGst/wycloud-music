@@ -2,7 +2,7 @@
   <div id="songInformation">
     <!--  初始信息展示  -->
     <div class="initial">
-      <i class="icon iconfont icon-wangyiyun"></i>
+      <i class="icon iconfont icon-wangyiyun" :style="{color: $store.state.color.themeColor}"></i>
       <span>暂无音乐</span>
     </div>
   </div>
@@ -27,7 +27,6 @@
       align-items: center;
 
       i{
-        color: var(--themeColor);
         font-size: 40px;
       }
       span{

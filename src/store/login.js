@@ -32,6 +32,13 @@ export default {
             state.userLevel = value;
         },
 
+        /*更新用户签到状态*/
+        updateUserSignIn(state, value){
+            if(value){
+                state.isSignIn = true
+            }
+        },
+
         /*初始state*/
         initialState(state){
             state.isLogin = false;// 是否登录
@@ -49,6 +56,7 @@ export default {
         userInfo: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null, // 用户信息
         userLevel: localStorage.getItem("userLevel") ? JSON.parse(localStorage.getItem("userLevel")) : 0, // 用户等级
         isShowPop: false, // 是否显示登录界面
-        isShowUserInfo: false // 是否显示个人信息
+        isShowUserInfo: false, // 是否显示个人信息
+        isSignIn: false
     }
 }

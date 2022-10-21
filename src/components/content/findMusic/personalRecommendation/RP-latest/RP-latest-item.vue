@@ -1,7 +1,7 @@
 <template>
   <div id="RP-lm-item">
     <div class="RP-lm-img">
-     <span><i class="icon iconfont icon-play"/></span>
+     <span><i class="icon iconfont icon-play" :style="{color: $store.state.color.themeColor}"/></span>
       <img v-lazy="item.picUrl"/>
     </div>
     <div class="RP-lm-msg">
@@ -40,7 +40,6 @@
 
         i{
           font-size: 23px;
-          color: var(--themeColor);
         }
       }
     }

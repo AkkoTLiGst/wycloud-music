@@ -8,12 +8,16 @@
 :root {
   // 主题色
   --themeColor: #668eff;
+  --themeColorRed: #ec4141;
+  --themeColorGreen: #4abd73;
+  --themeColorPink: #f993bf;
+  --themeColorBlack: #202023;
+  --themeColorMidnightBlue: #191970;
   // 透明主题色
   --themeColorTM: rgba(102,142,255, .2);
-  // 搜索框颜色
-  --searchColor: #6c79ee;
   // 半透明黑色
   --translucent: rgba(0, 0, 0, .5);
+  --translucent2: rgba(0, 0, 0, .7);
   // hover灰色
   --hoverGray: #f6f6f7;
 }
@@ -130,3 +134,9 @@ img{
     color: #6c79ee;
   }
 }
+// 标题栏选中时的样式
+.el-menu--horizontal>.el-menu-item.is-active{
+  font-size: 18px;
+  font-weight: bold;
+}
+

@@ -9,6 +9,12 @@ import HQMain from "@/pages/findMusic/children/HQ-main"; // 歌单
 import recommendedVideosMain from "@/pages/recommendedVideos/recommendedVideosMain";
 import videosMain from "@/components/content/recommendedVideos/Videos/Videos-Main";
 
+/*我喜欢的音乐*/
+import mySongListMain from "@/pages/mySongList/mySongList-Main";
+import songListList from "@/pages/mySongList/Children/songList-List"; // 歌单列表
+import songListComment from "@/pages/mySongList/Children/songList-Comment"; // 评论
+import songListCollector from "@/pages/mySongList/Children/songList-Collector"; // 收藏者
+
 export default new VueRouter({
     mode: 'hash',
     routes: [
@@ -47,6 +53,29 @@ export default new VueRouter({
                     name: 'videos',
                     path: 'videos',
                     component: videosMain
+                }
+            ]
+        },
+        {
+            name: 'songList',
+            path: '/songList',
+            component: mySongListMain,
+            redirect: '/songList/songListList',
+            children: [
+                {
+                    name: 'songListList',
+                    path: 'songListList',
+                    component: songListList
+                },
+                {
+                    name: 'songListComment',
+                    path: 'songListComment',
+                    component: songListComment
+                },
+                {
+                    name: 'songListCollector',
+                    path: 'songListCollector',
+                    component: songListCollector
                 }
             ]
         }

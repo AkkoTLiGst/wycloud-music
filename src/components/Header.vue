@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="header" :style="{backgroundColor: $store.state.color.themeColor}">
     <div class="header-left">
       <logo/>
       <operation/>
@@ -30,7 +30,6 @@
 <style scoped lang="less">
   #header{
     width: 100%; height: 60px;
-    background-color: var(--themeColor);
     display: flex;
     justify-content: space-between;
 

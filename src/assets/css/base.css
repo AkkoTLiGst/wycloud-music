@@ -6,9 +6,14 @@
 }
 :root {
   --themeColor: #668eff;
+  --themeColorRed: #ec4141;
+  --themeColorGreen: #4abd73;
+  --themeColorPink: #f993bf;
+  --themeColorBlack: #202023;
+  --themeColorMidnightBlue: #191970;
   --themeColorTM: rgba(102, 142, 255, 0.2);
-  --searchColor: #6c79ee;
   --translucent: rgba(0, 0, 0, 0.5);
+  --translucent2: rgba(0, 0, 0, 0.7);
   --hoverGray: #f6f6f7;
 }
 /* em 和 i 斜体的文字不倾斜 */
@@ -106,5 +111,9 @@ img {
 .floating-play i {
   font-size: 200%;
   color: #6c79ee;
+}
+.el-menu--horizontal > .el-menu-item.is-active {
+  font-size: 18px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=base.css.map */
