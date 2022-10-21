@@ -65,7 +65,21 @@ export default new VueRouter({
                 {
                     name: 'songListList',
                     path: 'songListList',
-                    component: songListList
+                    component: songListList,
+                    meta: {
+                        isAuth: true
+                    },
+                    // 路由守卫，判断是否登录
+                    beforeEnter: (to, from, next)=>{
+                        // console.log(to, from);
+                        if(to.meta.isAuth){
+                            if (localStorage.getItem('isLogin')){
+                                next();
+                            }else {
+                                next(from.path); // 没登录就返回来的界面
+                            }
+                        }else {next();}
+                    },
                 },
                 {
                     name: 'songListComment',
