@@ -12,9 +12,9 @@
       </ul>
       <ul class="list"
           v-infinite-scroll="load" infinite-scroll-disabled="disabled"
-          infinite-scroll-distance="0"
+          infinite-scroll-distance="1"
       > <!--注意：infinite-scroll-distance="0" 必须设置，并且必须为0-->
-        <li v-for="(item, index) in allSong" class="list-item" :key="index">
+        <li v-for="(item, index) in allSong" class="list-item" @dblclick="getPlaying(item)" :key="index">
           <div class="operate">
             {{index+1}}
             <div>
@@ -36,7 +36,7 @@
 
 <script>
 import {mapGetters, mapMutations, mapState} from "vuex";
-import {getAllSong} from "@/config/songlist/userSongList";
+import {getAllSong, getComment, getLyric} from "@/config/songlist/userSongList";
 import {setItem} from "@/config/utils";
 
   export default {
@@ -54,11 +54,13 @@ import {setItem} from "@/config/utils";
         return this.loading || this.noMore
       },
       ...mapState('userSongList', ['allSong', 'selectedList', 'limit' , 'offset']),
+      ...mapState('nowPlaying', ['playingSong', 'lyric', 'timeComment', 'hotComment', 'commentTotal', 'commentPager', 'lyricsObj']),
       ...mapGetters('userSongList', ['songTime'])
     },
     methods: {
       /*每次滑到底的时候会被14行调用该函数*/
       load () {
+        // console.log(1)
         this.loading = true
         setTimeout(async () => {
           /*
@@ -77,7 +79,40 @@ import {setItem} from "@/config/utils";
           this.loading = false
         }, 2000)
       },
-      ...mapMutations('userSongList', ['addOffset', 'updateAllSong'])
+      ...mapMutations('userSongList', ['addOffset', 'updateAllSong']),
+      ...mapMutations('nowPlaying', ['updatePlayingSong', 'updateLyric', 'updateHotComment', 'updateTimeComment', 'updateTotalCount', 'rewriteLyrics']),
+      async getPlaying(item){
+        await this.updatePlayingSong(item); // 获取正在播放
+        setItem('playingSong', this.playingSong); // 正在播放写入cookie
+
+        // axios获取歌词
+        const lyricRes = await getLyric(this.playingSong.id);
+        // console.log('歌词res',lyricRes.data.lrc);
+        setItem('lyric', lyricRes.data.lrc); // 歌词写入cookie
+        await this.updateLyric(lyricRes.data.lrc); // 歌词写入vuex
+
+        // 加工歌词
+        this.rewriteLyrics();
+        setItem('lyricsObj', this.lyricsObj); // 加工后的歌词写入cookie
+
+
+        // 获取热门评论
+        const hotCommentRes = await getComment(this.playingSong.id, 0, 1, 10, 2);
+        // console.log('热门评论res', hotCommentRes.data.data.comments);
+        setItem('hotComment', hotCommentRes.data.data.comments); // 热评写入cookie
+        this.updateHotComment(hotCommentRes.data.data.comments); // 热评写入vuex
+
+        // 存储评论总数
+        setItem('commentTotal', hotCommentRes.data.data.totalCount); // 评论总数写入cookie
+        this.updateTotalCount(hotCommentRes.data.data.totalCount); // 评论总数写入vuex
+
+
+        // 获取时间评论
+        const timeCommentRes = await getComment(this.playingSong.id, 0, this.commentPager, 20, 3);
+        // console.log('时间评论res', timeCommentRes.data.data.comments);
+        setItem('timeComment', timeCommentRes.data.data.comments); // 时评写入cookie
+        this.updateTimeComment(timeCommentRes.data.data.comments); // 时评写入vuex
+      }
     }
   }
 </script>

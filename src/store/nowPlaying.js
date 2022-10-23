@@ -1,3 +1,6 @@
+import {getComment} from "@/config/songlist/userSongList";
+import {setItem} from "@/config/utils";
+
 export default {
     namespaced: true,
     mutations: {
@@ -74,6 +77,16 @@ export default {
                 return Number(sec + '.' + ms);
             }
             // console.log(state.lyricObj);
+        },
+
+        // 更新页数
+        async getPager(state, value){
+            state.commentPager = value;
+
+            const timeCommentRes = await getComment(state.playingSong.id, 0, state.commentPager, 20, 3, state.timeComment[19].time);
+            console.log(timeCommentRes);
+            state.timeComment = timeCommentRes.data.data.comments;
+            setItem('timeComment', timeCommentRes.data.data.comments); // 时评写入cookie
         }
 
     },

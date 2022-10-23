@@ -26,14 +26,10 @@ export default {
                 state.themeColor = 'var(--themeColorMidnightBlue)';
                 state.colorCode = 6;
             }
-        },
-        changeIsShowSkins(state){
-            state.isShowSkins = !state.isShowSkins
         }
     },
     state: {
         themeColor: 'var(--themeColor)',
-        colorCode: 4,
-        isShowSkins: false
+        colorCode: 4
     }
 }

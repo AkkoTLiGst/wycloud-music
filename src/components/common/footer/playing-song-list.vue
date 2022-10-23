@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style scoped lang="less">
- #playingList{
-   position: absolute;
- }
+  #playingList{
+    position: absolute;
+  }
 </style>

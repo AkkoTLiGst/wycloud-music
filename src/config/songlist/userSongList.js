@@ -42,3 +42,81 @@ export function getAllSong(id, limit, offset){
         }
     });
 }
+
+// 获取歌曲歌词
+// res.dara.lrc 默认歌词
+// res.dara.tlyric 第二歌词 多语言
+export function getLyric(id){ // id：歌曲ID
+    return request({
+        url: '/lyric',
+        params: {
+            id
+        }
+    });
+}
+
+// 获取评论
+/*返回值：
+        res.data.comments[0].user.nickname 评论发布者昵称
+        res.data.comments[0].user.avatarUrl 评论发布者头像
+        res.data.comments[0].commentId 评论ID
+        res.data.comments[0].content 评论内容
+        res.data.comments[0].timeStr 评论时间
+        res.data.comments[0].likedCount 点赞数量
+        res.data.comments[0].liked 是否点赞
+        res.data.comments[0].liked 是否点赞
+        res.data.totalCount 评论总数
+* */
+export function getComment(id, type, pageNo, pageSize, sortType, cursor){
+    return request({
+        url: '/comment/new',
+        params: {
+            id,       // 资源 id, 如歌曲 id,mv id
+            type,     // type=0: 歌曲, type=1: mv, type=2: 歌单, type=3: 专辑
+                      // type=4: 电台节目, type=5: 视频, type=6: 动态, type=7: 电台
+            pageNo,   // 分页参数,第 N 页,默认为 1
+            pageSize, // 分页参数,每页多少条数据,默认 20
+            // 拿热评举例，热评10条是1-10，
+            //  当pageNo=1, pageSize=5时，取1-5
+            //  当pageNo=2, pageSize=5时，取6-10
+            // 热门评论建议固定取10个就行了，也就是pageNo=1,pageSize=10，
+
+            sortType, // 排序方式, 1:按推荐排序, 2:按热度排序, 3:按时间排序
+            cursor    // 当sortType为 3 时且页数不是第一页时需传入,值为上一条数据的 time
+        }
+    });
+}
+
+// 给评论点赞
+export function likeComment(id, cid, t, type){
+    return request({
+        url: '/comment/new',
+        params: {
+            id,       // 资源 id, 如歌曲 id,mv id
+            cid,       // 评论 id
+            type,     // type=0: 歌曲, type=1: mv, type=2: 歌单, type=3: 专辑
+                      // type=4: 电台节目, type=5: 视频, type=6: 动态, type=7: 电台
+            t,        // 是否点赞 , 1 为点赞 ,0 为取消点赞
+        }
+    });
+}
+
+export function sendComment(id, commentId, t, type, content){
+    return request({
+        url: '/comment/new',
+        params: {
+            id,       // 资源 id, 如歌曲 id,mv id
+            commentId,       // 回复的评论 id (回复评论时必填)
+            type,     // type=0: 歌曲, type=1: mv, type=2: 歌单, type=3: 专辑
+                      // type=4: 电台节目, type=5: 视频, type=6: 动态, type=7: 电台
+            t,        // 1 发送, 2 回复
+            content   // 要发送的内容
+        }
+    });
+}
+
+
+
+
+
+

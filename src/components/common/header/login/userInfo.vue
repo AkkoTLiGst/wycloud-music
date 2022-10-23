@@ -1,6 +1,5 @@
 <template>
   <div id="userInfo" >
-    <el-card shadow="always" body-style="width: 280px;">
       <!--  动态、关注、粉丝、签到   -->
       <div class="userInfo-follow">
         <div class="follow-top">
@@ -37,7 +36,6 @@
       <div class="loginOut userInfo-base" @click="logout">
         <div><i class="el-icon-switch-button"/>退出登录</div>
       </div>
-    </el-card>
   </div>
 </template>
 
@@ -86,9 +84,7 @@ export default {
 
 <style scoped lang="less">
   #userInfo{
-    width: 280px;
-    position: absolute; z-index: 1000;
-    left: -108px; top: 61px;
+    margin-top: 10px;
 
     .userInfo-follow{
       margin-bottom: 10px;

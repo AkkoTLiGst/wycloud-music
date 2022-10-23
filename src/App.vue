@@ -23,5 +23,6 @@
     width: 100%; height: 100%;
     min-width: 996px;
     position: relative;
+    overflow: hidden;
   }
 </style>

@@ -5,3 +5,4 @@ export function setItem(key, value){
     }
     window.localStorage.setItem(key, value);
 }
+

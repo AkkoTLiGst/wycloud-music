@@ -57,7 +57,7 @@ export default {
 
     .PR-item-img{
       img{
-        height: 150px;
+        height: 20%;
       }
     }
 

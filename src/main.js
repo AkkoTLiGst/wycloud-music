@@ -15,6 +15,8 @@ import router from "@/router";
 import VueLazyload from "vue-lazyload";
 // vuex配置项
 import store from "@/store";
+// 自定义指令
+import './config/directive';
 
 
 Vue.use(less);

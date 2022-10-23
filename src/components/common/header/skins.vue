@@ -1,58 +1,60 @@
 <template>
   <div id="skins">
-    <i class="icon iconfont icon-skin" @click="changeIsShowSkins"></i>
-    <div class="choseSkins"  v-if="$store.state.color.isShowSkins">
-      <el-card shadow="always" body-style="width: 330px;">
-        <div class="allSkins">
-          <span class="skinTitle">主题</span>
-          <div class="skinColors">
+    <el-popover
+        placement="bottom"
+        width="314"
+        trigger="click"
+    >
+      <i slot="reference" class="icon iconfont icon-skin"></i>
+      <div class="allSkins">
+        <span class="skinTitle">主题</span>
+        <div class="skinColors">
 
-            <div  @click="changeSkins(1)" class="skinColor black">
-              <span>炫酷黑</span>
-              <div v-show="1 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
+          <div  @click="changeSkins(1)" class="skinColor black">
+            <span>炫酷黑</span>
+            <div v-show="1 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
             </div>
-
-            <div  @click="changeSkins(2)" class="skinColor red">
-              <span>官方红</span>
-              <div v-show="2 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
-            </div>
-
-            <div  @click="changeSkins(3)" class="skinColor pink">
-              <span>可爱粉</span>
-              <div v-show="3 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
-            </div>
-
-            <div  @click="changeSkins(4)" class="skinColor blue">
-              <span>天际蓝</span>
-              <div v-show="4 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
-            </div>
-
-            <div  @click="changeSkins(5)" class="skinColor green">
-              <span>清新绿</span>
-              <div v-show="5 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
-            </div>
-
-            <div  @click="changeSkins(6)" class="skinColor deepBlue">
-              <span>深海蓝</span>
-              <div v-show="6 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
-                <i class="el-icon-check" style="color: white; font-size: 14px"></i>
-              </div>
-            </div>
-
           </div>
+
+          <div  @click="changeSkins(2)" class="skinColor red">
+            <span>官方红</span>
+            <div v-show="2 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
+            </div>
+          </div>
+
+          <div  @click="changeSkins(3)" class="skinColor pink">
+            <span>可爱粉</span>
+            <div v-show="3 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
+            </div>
+          </div>
+
+          <div  @click="changeSkins(4)" class="skinColor blue">
+            <span>天际蓝</span>
+            <div v-show="4 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
+            </div>
+          </div>
+
+          <div  @click="changeSkins(5)" class="skinColor green">
+            <span>清新绿</span>
+            <div v-show="5 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
+            </div>
+          </div>
+
+          <div  @click="changeSkins(6)" class="skinColor deepBlue">
+            <span>深海蓝</span>
+            <div v-show="6 === $store.state.color.colorCode" class="skinIcon" :style="{backgroundColor: $store.state.color.themeColor}">
+              <i class="el-icon-check" style="color: white; font-size: 14px"></i>
+            </div>
+          </div>
+
         </div>
-      </el-card>
-    </div>
+      </div>
+    </el-popover>
   </div>
 </template>
 
@@ -65,7 +67,7 @@
       changeSkins(value){
         this.changeThemeColor(value);
       },
-      ...mapMutations('color', ['changeThemeColor', 'changeIsShowSkins'])
+      ...mapMutations('color', ['changeThemeColor'])
     }
   }
 </script>
@@ -86,10 +88,7 @@
 
   }
 
-  .choseSkins{
-    position: absolute; z-index: 100;
-    top: 61px; left: -255px;
-    width: 330px;
+
 
     .allSkins{
 
@@ -158,5 +157,4 @@
         }
       }
     }
-  }
 </style>

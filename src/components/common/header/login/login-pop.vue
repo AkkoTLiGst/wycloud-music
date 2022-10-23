@@ -111,7 +111,6 @@
             clearInterval(this.timer); // 登录成功清除定时器
             setItem('cookie', statusRes.cookie) // 将cookie缓存本地
             this.getUid(); // 存储信息
-            window.location.reload(); // 刷新界面
             this.successQr = false;
           }
         }, 2000);
@@ -151,6 +150,8 @@
 
         this.updateUserLevel(res.data.level); // 用户等级发送vuex
         setItem('userLevel', res.data.level); // 用户等级存储本地
+
+        window.location.reload(); // 刷新界面
       },
 
       /* 存储用户是否签到 */

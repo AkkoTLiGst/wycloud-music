@@ -6,9 +6,17 @@
     </div>
 
     <div id="right-login" v-if="isLogin === true">
+
       <img :src="userInfo.avatarUrl" alt="图片无法显示">
-      <span>{{userInfo.nickname}}<i class="el-icon-caret-bottom" @click="showUserInfo"></i></span>
-      <userInfo v-show="isShowUserInfo"/>
+      <el-popover
+          placement="bottom"
+          width="314"
+          trigger="click"
+      >
+        <span slot="reference">{{userInfo.nickname}}<i class="el-icon-caret-bottom"></i></span>
+        <userInfo/>
+      </el-popover>
+
     </div>
   </div>
 </template>
@@ -21,10 +29,10 @@
     name: "right-login",
     components: {userInfo},
     computed: {
-      ...mapState('login', ['isLogin', 'userInfo', 'isShowUserInfo'])
+      ...mapState('login', ['isLogin', 'userInfo'])
     },
     methods: {
-      ...mapMutations('login', ['showPop', 'showUserInfo'])
+      ...mapMutations('login', ['showPop'])
     }
   }
 </script>
@@ -45,7 +53,7 @@
     span{
       font-size: 10px;
       color: #dfd3fc;
-      margin-left: 8px;
+      margin-left: 5px;
 
       i{
         margin-left: 2px;

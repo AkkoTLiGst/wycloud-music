@@ -29,6 +29,7 @@ li {
 /**滚动条的宽度*/
 ::-webkit-scrollbar {
   width: 8px;
+  position: absolute;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #eaecf1;
@@ -70,6 +71,23 @@ a:hover {
 @media only screen and (max-width: 1600px) {
   .main-view-baseW {
     padding: 0;
+  }
+}
+/**/
+@media only screen and (max-width: 1800px) {
+  .songLyrics-base {
+    width: 80%;
+  }
+  .songComment-base {
+    width: 630px;
+  }
+}
+@media only screen and (min-width: 1800px) {
+  .songLyrics-base {
+    width: 50%;
+  }
+  .songComment-base {
+    width: 800px;
   }
 }
 /*个性推荐的每个子元素的公共样式*/

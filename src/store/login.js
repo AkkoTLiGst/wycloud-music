@@ -11,11 +11,6 @@ export default {
             }
         },
 
-        /* 切换是否显示个人信息 */
-        showUserInfo(state){
-            state.isShowUserInfo = !state.isShowUserInfo;
-        },
-
         /* 切换登录状态 */
         changeIsLogin(state, value){
             state.isLogin = value;
@@ -56,7 +51,6 @@ export default {
         userInfo: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null, // 用户信息
         userLevel: localStorage.getItem("userLevel") ? JSON.parse(localStorage.getItem("userLevel")) : 0, // 用户等级
         isShowPop: false, // 是否显示登录界面
-        isShowUserInfo: false, // 是否显示个人信息
         isSignIn: false
     }
 }

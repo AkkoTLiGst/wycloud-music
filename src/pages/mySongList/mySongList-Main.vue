@@ -2,7 +2,7 @@
   <div id="mySongList-Main"  class="RP-base">
     <div class="plz" v-if="$store.state.login.isLogin === false">
     </div>
-    <div class="isLogin" v-if="$store.state.login.isLogin === true">
+    <div class="isLogin" v-if="isLogin === true && allSong.length > 0">
       <song-list-banner/>
       <songListNav/>
       <div class="songList-view">
@@ -33,21 +33,29 @@
       }
     },
     computed: {
-      ...mapState('userSongList', ['userSongList', 'selectedList', 'allSong', 'offset', 'limit'])
+      ...mapState('userSongList', ['userSongList', 'selectedList', 'allSong', 'offset', 'limit']),
+      ...mapState('login', ['isLogin'])
     },
     created() {
-      if(this.allSong.length === 0 && this.$store.state.login.isLogin){ // 判断是不是第一次进歌单路由界面，防止每次进入都重新执行下面两个函数
-        this.getUserSongList();
-        this.getSelectedList(this.$route.query.title);
-      }
+      this.firstGet();
     },
     methods: {
+      // 初始获取函数
+      // 成功执行getUserSongList后再执行下面的语句，不用async会在getUserSongList没执行完就执行getSelectedList从而造成BUG
+      async firstGet(){
+        if(this.allSong.length === 0 && this.$store.state.login.isLogin){ // 判断是不是第一次进歌单路由界面，防止每次进入都重新执行下面两个函数
+          await this.getUserSongList();
+          await this.getSelectedList(this.$route.query.title);
+        }
+      },
+
       // 获取用户的所有歌单
       async getUserSongList(){
         const res = await playList(this.$store.state.login.userInfo.userId);
         setItem('userSongList', res.data.playlist);
         this.updateUserSongList(res.data.playlist); // 保存至vuex
       },
+
       // 获取当前选择的歌单
       async getSelectedList(title){
         // 我喜欢的音乐

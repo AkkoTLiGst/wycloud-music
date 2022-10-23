@@ -19,10 +19,10 @@
 
 <style scoped lang="less">
   #leftMain{
-    width: 150px; height: 100%;
+    width: 250px; height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-right: 40px;
+    margin-right: 45px;
   }
 </style>
