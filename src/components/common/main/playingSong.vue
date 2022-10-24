@@ -1,6 +1,6 @@
 <template>
   <transition name="show">
-    <div id="playingSong" v-show="$store.state.nowPlaying.showWindow">
+    <div id="playingSong" v-if="$store.state.nowPlaying.showWindow">
       <div class="songImg" :style="{'background-image': `url(${$store.state.nowPlaying.playingSong.al.picUrl})`}"></div>
       <song-lyrics/>
       <song-comment/>
@@ -46,7 +46,7 @@
     }
     i{
       font-size: 25px;
-      position: absolute;
+      position: fixed;
       left: 40px; top: 40px;
       z-index: 10;
     }

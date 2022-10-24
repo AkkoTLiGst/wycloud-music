@@ -1,5 +1,5 @@
 <template>
-  <div id="footer">
+  <div id="footer" class="disabledSelection">
     <!--  歌曲信息  -->
     <song-information/>
     <!--  底部中间部分  -->
@@ -27,7 +27,7 @@
       };
     },
     computed: {
-      ...mapState('nowPlaying', ['showWindow'])
+      ...mapState('nowPlaying', ['showWindow', 'songUrl'])
     }
   }
 </script>
@@ -40,5 +40,6 @@
     justify-content: space-between;
     border-top: 1px solid rgba(128, 128, 128, .2);
     position: relative; z-index: 3;
+
   }
 </style>

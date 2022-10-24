@@ -25,7 +25,7 @@
           <div class="title">{{item.name}}</div>
           <div class="singer">{{item.ar[0].name}}</div>
           <div class="album">{{item.al.name}}</div>
-          <div class="time">{{songTime(index)}}</div>
+          <div class="time">{{songTime(item.dt, 60000)}}</div>
         </li>
       </ul>
       <p v-if="loading">加载中...</p>
@@ -36,7 +36,7 @@
 
 <script>
 import {mapGetters, mapMutations, mapState} from "vuex";
-import {getAllSong, getComment, getLyric} from "@/config/songlist/userSongList";
+import {getAllSong, getComment, getLyric, getSongUrl} from "@/config/songlist/userSongList";
 import {setItem} from "@/config/utils";
 
   export default {
@@ -80,10 +80,18 @@ import {setItem} from "@/config/utils";
         }, 2000)
       },
       ...mapMutations('userSongList', ['addOffset', 'updateAllSong']),
-      ...mapMutations('nowPlaying', ['updatePlayingSong', 'updateLyric', 'updateHotComment', 'updateTimeComment', 'updateTotalCount', 'rewriteLyrics']),
+      ...mapMutations('nowPlaying', ['updatePlayingSong', 'updateIsPlaySong', 'updateSongUrl', 'updateLyric', 'updateHotComment', 'updateTimeComment', 'updateTotalCount', 'rewriteLyrics']),
       async getPlaying(item){
         await this.updatePlayingSong(item); // 获取正在播放
         setItem('playingSong', this.playingSong); // 正在播放写入cookie
+
+        const songUrlRes = await getSongUrl(this.playingSong.id);
+        // console.log(songUrlRes);
+        this.updateSongUrl(songUrlRes.data.data[0].url);
+        setItem('songUrl', songUrlRes.data.data[0].url); // 正在播放url写入cookie
+
+        // 播放歌曲
+        this.updateIsPlaySong(1);
 
         // axios获取歌词
         const lyricRes = await getLyric(this.playingSong.id);

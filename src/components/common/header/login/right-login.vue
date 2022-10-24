@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="right-login" @click="showPop" v-if="isLogin === false">
+    <div id="right-login" @click="showPop" v-if="isLogin === false" class="disabledSelection">
       <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" alt="图片无法显示">
       <span>未登录<i class="el-icon-caret-bottom"></i></span>
     </div>

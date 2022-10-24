@@ -1,5 +1,5 @@
 <template>
-  <div class="header-logo">
+  <div class="header-logo disabledSelection">
     <span class="icon iconfont icon-wangyiyun"></span>
     <a href="#">CloudMusic</a>
   </div>

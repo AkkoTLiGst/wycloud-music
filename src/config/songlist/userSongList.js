@@ -55,6 +55,17 @@ export function getLyric(id){ // id：歌曲ID
     });
 }
 
+// 获取歌曲url
+// res.data.data.url: mp3Url,
+export function getSongUrl(id){
+    return request({
+        url: '/song/url',
+        params: {
+            id
+        }
+    });
+}
+
 // 获取评论
 /*返回值：
         res.data.comments[0].user.nickname 评论发布者昵称
@@ -101,19 +112,6 @@ export function likeComment(id, cid, t, type){
     });
 }
 
-export function sendComment(id, commentId, t, type, content){
-    return request({
-        url: '/comment/new',
-        params: {
-            id,       // 资源 id, 如歌曲 id,mv id
-            commentId,       // 回复的评论 id (回复评论时必填)
-            type,     // type=0: 歌曲, type=1: mv, type=2: 歌单, type=3: 专辑
-                      // type=4: 电台节目, type=5: 视频, type=6: 动态, type=7: 电台
-            t,        // 1 发送, 2 回复
-            content   // 要发送的内容
-        }
-    });
-}
 
 
 

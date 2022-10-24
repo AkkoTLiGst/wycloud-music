@@ -165,7 +165,7 @@
 <style scoped lang="less">
   #loginPop{
     position: absolute;
-    left: 36%; top: 20%;
+    left: 40%; top: 20%;
     z-index: 10000;
 
     .closeLoginPop{

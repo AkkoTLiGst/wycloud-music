@@ -1,3 +1,5 @@
+import {getMin} from "@/config/utils";
+
 export default {
     namespaced: true,
     actions: {},
@@ -29,21 +31,8 @@ export default {
             return (Y + M + D);
         },
         // 返回每首歌的时长
-        songTime(state){
-            return function(value){
-                const num = state.allSong[value].dt / 60000;
-                const int = Math.trunc(num);
-                let dec = (Math.round((num - int) * 100) / 100 + "").slice(2, 4);
-                if(dec.length < 2){
-                    dec = dec + '0';
-                }
-
-                if(int > 10){
-                    return (int + ':' + dec);
-                }else{
-                    return ('0' + int + ':' + dec);
-                }
-            }
+        songTime(){
+            return getMin;
         }
     },
     state: {

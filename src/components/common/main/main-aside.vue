@@ -1,5 +1,5 @@
 <template>
-  <div id="mainAside" class="clearfix">
+  <div id="mainAside" class="clearfix disabledSelection">
     <div class="publicList">
       <!--登录前-->
       <div v-for="(item, index) in asideNavItem[0]" :key="index">

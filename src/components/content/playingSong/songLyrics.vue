@@ -18,8 +18,8 @@
           </div>
         </div>
         <!--歌词-->
-        <div class="showLyrics">
-          <p v-for="item in lyricsObj" :key="item.uid">
+        <div class="showLyrics" ref="showLyrics">
+          <p v-for="(item, index) in lyricsObj" :key="item.uid" :class="{'choose': isChoose(item, index)}">
             {{item.lyric}}
           </p>
         </div>
@@ -29,11 +29,11 @@
 </template>
 
 <script>
-  import {mapState} from "vuex";
+import {mapState} from "vuex";
   export default {
     name: "songLyrics",
     computed: {
-      ...mapState('nowPlaying', ['playingSong', 'lyricsObj', 'isPlayingMusic']),
+      ...mapState('nowPlaying', ['playingSong', 'lyricsObj', 'isPlayingMusic', 'musicProgressSec']),
       authors(){
         let author = '';
         if(this.playingSong.ar.length > 1){
@@ -46,6 +46,16 @@
           });
         }
         return author;
+      }
+    },
+    methods: {
+      isChoose(item, index){
+        if(this.musicProgressSec <= (item.time + item.keepTime) && this.musicProgressSec >= item.time){
+          if(index > 5){
+            this.$refs.showLyrics.scrollTop = 50 * (index - 5);
+          }
+          return true;
+        }
       }
     }
 
@@ -120,7 +130,14 @@
           &:hover::-webkit-scrollbar-thumb {background-color: #eaecf1 !important; width: 5px !important;}
           margin-top: 30px;
           p{
-            margin: 10px 0;
+            height: 40px;
+            line-height: 40px;
+          }
+          .choose{
+            height: 50px;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 25px;
           }
         }
       }

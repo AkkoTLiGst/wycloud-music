@@ -5,7 +5,7 @@
       <div class="list-img" @mouseleave="isShow=false" @mouseenter="isShow=true">
         <transition name="el-fade-in-linear">
           <div v-show="isShow" class="floating-play">
-            <i class="icon iconfont icon-play"/>
+            <i class="icon iconfont icon-play" :style="{'color': $store.state.color.themeColor}"/>
           </div>
         </transition>
         <span><i class="icon iconfont icon-strokePlay"/>{{playCountS(item.playCount)}}</span>
@@ -19,7 +19,7 @@
       <div class="list-img" @mouseleave="isShow=false" @mouseenter="isShow=true">
         <transition name="el-fade-in-linear">
           <div v-show="isShow" class="floating-play">
-            <i class="icon iconfont icon-play"/>
+            <i class="icon iconfont icon-play" :style="{'color': $store.state.color.themeColor}" />
           </div>
         </transition>
         <div class="author">

@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="main" class="disabledSelection">
     <main-aside/>
     <main-view/>
     <playingSong/>

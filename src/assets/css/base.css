@@ -65,10 +65,17 @@ a:hover {
   clear: both;
 }
 /*main-view的部分页面的默认样式*/
-.main-view-baseW {
-  padding: 0 100px;
+@media only screen and (min-width: 2500px) {
+  .main-view-baseW {
+    padding: 0 500px;
+  }
 }
-@media only screen and (max-width: 1600px) {
+@media only screen and (min-width: 1401px) and (max-width: 2449px) {
+  .main-view-baseW {
+    padding: 0 200px;
+  }
+}
+@media only screen and (max-width: 1400px) {
   .main-view-baseW {
     padding: 0;
   }
@@ -128,10 +135,15 @@ img {
 }
 .floating-play i {
   font-size: 200%;
-  color: #6c79ee;
 }
 .el-menu--horizontal > .el-menu-item.is-active {
   font-size: 18px;
   font-weight: bold;
+}
+.disabledSelection {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 /*# sourceMappingURL=base.css.map */
